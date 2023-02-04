@@ -10,7 +10,7 @@ class Notif
     private static $instance = null;
     private $client;
 
-    private function __construct()
+    public function __construct()
     {
         $this->client = new Client([
             // Base URI is used with relative requests
