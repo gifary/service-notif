@@ -5,7 +5,7 @@ namespace Supala\SendNotif\Http;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
-class Notif
+class NotificationETransport
 {
     private static $instance = null;
     private $client;
@@ -14,7 +14,7 @@ class Notif
     {
         $this->client = new Client([
             // Base URI is used with relative requests
-            'base_uri' => $_ENV['URL_NOTIFIKASI'],
+            'base_uri' => $_ENV['URL_NOTIFIKASI_ETRANSPORT'],
         ]);
     }
 
@@ -22,7 +22,7 @@ class Notif
     {
         if(!self::$instance)
         {
-            self::$instance = new Notif();
+            self::$instance = new NotificationETransport();
         }
 
         return self::$instance;
