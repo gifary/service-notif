@@ -3,7 +3,7 @@
 namespace Supala\SendNotif\Http;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\RequestException;
 
 class Notif
 {
@@ -36,7 +36,7 @@ class Notif
                 'status' => 200,
                 'message' => 'sukses kirim notifikasi'
             ];
-        }catch (ClientException $e) {
+        }catch (RequestException $e) {
             return [
                 'status' => 500,
                 'message' => $e->getMessage()
@@ -52,7 +52,7 @@ class Notif
                 'status' => 200,
                 'message' => 'sukses kirim notifikasi'
             ];
-        }catch (ClientException $e) {
+        }catch (RequestException $e) {
             return [
                 'status' => 500,
                 'message' => $e->getMessage()
@@ -68,7 +68,7 @@ class Notif
                 'status' => 200,
                 'message' => 'sukses kirim notifikasi'
             ];
-        }catch (ClientException $e) {
+        }catch (RequestException $e) {
             return [
                 'status' => 500,
                 'message' => $e->getMessage()
