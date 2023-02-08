@@ -75,4 +75,57 @@ class NotificationEMeeting
             ];
         }
     }
+
+    public function sendApprovedConsumption($id)
+    {
+        try{
+            $this->client->post("/api/consumption/{$id}/approved");
+            return [
+                'status' => 200,
+                'message' => 'sukses kirim notifikasi'
+            ];
+        }catch (RequestException $e) {
+            return [
+                'status' => 500,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
+
+    public function sendRejectedConsumption($id)
+    {
+        try{
+            $this->client->post("/api/consumption/{$id}/rejected");
+            return [
+                'status' => 200,
+                'message' => 'sukses kirim notifikasi'
+            ];
+        }catch (RequestException $e) {
+            return [
+                'status' => 500,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
+
+    public function sendRegisteredTad($id, $password)
+    {
+        try{
+            $this->client->post("/api/tad/registered", [
+                'json' => [
+                    'id' => $id,
+                    'password' => $password
+                ]
+            ]);
+            return [
+                'status' => 200,
+                'message' => 'sukses kirim notifikasi'
+            ];
+        }catch (RequestException $e) {
+            return [
+                'status' => 500,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
 }
