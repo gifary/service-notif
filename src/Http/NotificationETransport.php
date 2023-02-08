@@ -10,11 +10,11 @@ class NotificationETransport
     private static $instance = null;
     private $client;
 
-    public function __construct()
+    public function __construct($baseUri)
     {
         $this->client = new Client([
             // Base URI is used with relative requests
-            'base_uri' => $_ENV['URL_NOTIFIKASI_ETRANSPORT'],
+            'base_uri' => $baseUri,
         ]);
     }
 
