@@ -2,7 +2,7 @@
     "name": "supala/send-notif",
     "description": "to send notification for emeeting",
     "require": {
-        "guzzlehttp/guzzle": "6.x"
+        "guzzlehttp/guzzle": "6.x|7.x"
     },
     "authors": [
         {

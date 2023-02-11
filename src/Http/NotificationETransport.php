@@ -21,7 +21,7 @@ class NotificationETransport
     public function sendNewRequest($id)
     {
         try{
-            $this->client->post("/api/request/{$id}");
+            $this->client->post("/api/order/{$id}");
             return [
                 'status' => 200,
                 'message' => 'sukses kirim notifikasi'
@@ -42,7 +42,7 @@ class NotificationETransport
     public function sendApprovedRequest($id)
     {
         try{
-            $this->client->post("/api/request/{$id}/approved");
+            $this->client->post("/api/order/{$id}/approved");
             return [
                 'status' => 200,
                 'message' => 'sukses kirim notifikasi'
@@ -63,7 +63,7 @@ class NotificationETransport
     public function sendRejectedRequest($id)
     {
         try{
-            $this->client->post("/api/request/{$id}/rejected");
+            $this->client->post("/api/order/{$id}/rejected");
             return [
                 'status' => 200,
                 'message' => 'sukses kirim notifikasi'
