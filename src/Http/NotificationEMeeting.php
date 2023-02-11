@@ -9,23 +9,15 @@ class NotificationEMeeting
 {
     private static $instance = null;
     private $client;
+    public $baseUri;
 
     public function __construct($baseUri)
     {
+        $this->baseUri = $baseUri;
         $this->client = new Client([
             // Base URI is used with relative requests
             'base_uri' => $baseUri,
         ]);
-    }
-
-    public static function getInstance()
-    {
-        if(!self::$instance)
-        {
-            self::$instance = new NotificationEMeeting();
-        }
-
-        return self::$instance;
     }
 
     public function sendNewRequest($id)
@@ -37,6 +29,11 @@ class NotificationEMeeting
                 'message' => 'sukses kirim notifikasi'
             ];
         }catch (RequestException $e) {
+            return [
+                'status' => 500,
+                'message' => $e->getMessage()
+            ];
+        } catch (\Exception $e) {
             return [
                 'status' => 500,
                 'message' => $e->getMessage()
@@ -57,6 +54,11 @@ class NotificationEMeeting
                 'status' => 500,
                 'message' => $e->getMessage()
             ];
+        }catch (\Exception $e) {
+            return [
+                'status' => 500,
+                'message' => $e->getMessage()
+            ];
         }
     }
 
@@ -69,6 +71,11 @@ class NotificationEMeeting
                 'message' => 'sukses kirim notifikasi'
             ];
         }catch (RequestException $e) {
+            return [
+                'status' => 500,
+                'message' => $e->getMessage()
+            ];
+        }catch (\Exception $e) {
             return [
                 'status' => 500,
                 'message' => $e->getMessage()
@@ -89,6 +96,11 @@ class NotificationEMeeting
                 'status' => 500,
                 'message' => $e->getMessage()
             ];
+        }catch (\Exception $e) {
+            return [
+                'status' => 500,
+                'message' => $e->getMessage()
+            ];
         }
     }
 
@@ -101,6 +113,11 @@ class NotificationEMeeting
                 'message' => 'sukses kirim notifikasi'
             ];
         }catch (RequestException $e) {
+            return [
+                'status' => 500,
+                'message' => $e->getMessage()
+            ];
+        }catch (\Exception $e) {
             return [
                 'status' => 500,
                 'message' => $e->getMessage()
@@ -122,6 +139,11 @@ class NotificationEMeeting
                 'message' => 'sukses kirim notifikasi'
             ];
         }catch (RequestException $e) {
+            return [
+                'status' => 500,
+                'message' => $e->getMessage()
+            ];
+        }catch (\Exception $e) {
             return [
                 'status' => 500,
                 'message' => $e->getMessage()

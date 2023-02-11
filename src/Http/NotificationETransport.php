@@ -18,16 +18,6 @@ class NotificationETransport
         ]);
     }
 
-    public static function getInstance()
-    {
-        if(!self::$instance)
-        {
-            self::$instance = new NotificationETransport();
-        }
-
-        return self::$instance;
-    }
-
     public function sendNewRequest($id)
     {
         try{
@@ -37,6 +27,11 @@ class NotificationETransport
                 'message' => 'sukses kirim notifikasi'
             ];
         }catch (RequestException $e) {
+            return [
+                'status' => 500,
+                'message' => $e->getMessage()
+            ];
+        }catch (\Exception $e) {
             return [
                 'status' => 500,
                 'message' => $e->getMessage()
@@ -57,6 +52,11 @@ class NotificationETransport
                 'status' => 500,
                 'message' => $e->getMessage()
             ];
+        }catch (\Exception $e) {
+            return [
+                'status' => 500,
+                'message' => $e->getMessage()
+            ];
         }
     }
 
@@ -69,6 +69,11 @@ class NotificationETransport
                 'message' => 'sukses kirim notifikasi'
             ];
         }catch (RequestException $e) {
+            return [
+                'status' => 500,
+                'message' => $e->getMessage()
+            ];
+        }catch (\Exception $e) {
             return [
                 'status' => 500,
                 'message' => $e->getMessage()
